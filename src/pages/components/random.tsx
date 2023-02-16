@@ -40,7 +40,7 @@ function RandomSvg({ type }: Props) {
       break
   }
 
-  return <>{chosenSvg}</>
+  return <>{chosenSvg()}</>
 }
 
 export default RandomSvg
