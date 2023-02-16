@@ -192,7 +192,6 @@ export function PositivoTre() {
       xmlns='http://www.w3.org/2000/svg'
       version='1.1'
       xmlnsXlink='http://www.w3.org/1999/xlink'
-      xmlnsvgjs='http://svgjs.dev/svgjs'
       viewBox='0 0 800 800'
     >
       <defs>
@@ -383,7 +382,6 @@ export function PositivoTwo() {
       xmlns='http://www.w3.org/2000/svg'
       version='1.1'
       xmlnsXlink='http://www.w3.org/1999/xlink'
-      xmlnssvgjs='http://svgjs.dev/svgjs'
       viewBox='0 0 800 800'
     >
       <defs>
@@ -571,7 +569,6 @@ export function NegativeOne() {
       xmlns='http://www.w3.org/2000/svg'
       version='1.1'
       xmlnsXlink='http://www.w3.org/1999/xlink'
-      xmlnssvgjs='http://svgjs.dev/svgjs'
       viewBox='0 0 800 800'
     >
       <defs>
@@ -763,7 +760,6 @@ export function NegativeTwo() {
       xmlns='http://www.w3.org/2000/svg'
       version='1.1'
       xmlnsXlink='http://www.w3.org/1999/xlink'
-      xmlnssvgjs='http://svgjs.dev/svgjs'
       viewBox='0 0 800 800'
     >
       <defs>
@@ -951,7 +947,6 @@ export function Neutral() {
       xmlns='http://www.w3.org/2000/svg'
       version='1.1'
       xmlnsXlink='http://www.w3.org/1999/xlink'
-      xmlnssvgjs='http://svgjs.dev/svgjs'
       viewBox='0 0 800 800'
     >
       <defs>

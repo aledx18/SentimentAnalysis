@@ -64,7 +64,7 @@ export default function Home() {
                 {r.prediction === 'negativo' ? (
                   <RandomSvg type='negativo' />
                 ) : (
-                  <RandomSvg type='neutral' />
+                  <RandomSvg type='positivo' />
                 )}
               </div>
             ))}
