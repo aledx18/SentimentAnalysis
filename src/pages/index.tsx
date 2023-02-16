@@ -31,7 +31,13 @@ export default function Home() {
     event.preventDefault()
     if (text) {
       const result = await service(text)
-      setRes(result)
+
+      if (typeof result.then === 'function') {
+        const resolvedResult = await result
+        setRes(resolvedResult)
+      } else {
+        setRes(result)
+      }
     }
 
     setText('')
