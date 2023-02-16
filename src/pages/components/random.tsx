@@ -40,7 +40,7 @@ function RandomSvg({ type }: Props) {
       break
   }
 
-  return <>{chosenSvg()}</>
+  return <>{React.createElement(chosenSvg)}</>
 }
 
 export default RandomSvg
