@@ -4,7 +4,6 @@ import Head from 'next/head'
 import React, { useState } from 'react'
 import service from './components/service'
 import RandomSvg from './components/random'
-// import PositivoF from './components/comparador.jsx'
 
 interface Respuesta {
   id: string
