@@ -2,7 +2,7 @@
 /* eslint-disable indent */
 import Head from 'next/head'
 import React, { useState } from 'react'
-// import service from './components/service'
+import service from './components/service'
 import RandomSvg from './components/random'
 
 interface Respuesta {
@@ -30,16 +30,16 @@ export default function Home() {
 
   async function handdleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    // if (text) {
-    //   const result = await service(text)
+    if (text) {
+      const result = await service(text)
 
-    //   if (typeof result.then === 'function') {
-    //     const resolvedResult = await result
-    //     setRes(resolvedResult)
-    //   } else {
-    //     setRes(result)
-    //   }
-    // }
+      if (typeof result.then === 'function') {
+        const resolvedResult = await result
+        setRes(resolvedResult)
+      } else {
+        setRes(result)
+      }
+    }
 
     setText('')
   }
