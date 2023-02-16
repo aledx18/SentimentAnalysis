@@ -2,7 +2,7 @@
 /* eslint-disable indent */
 import Head from 'next/head'
 import React, { useState } from 'react'
-import service from './components/service'
+// import service from './components/service'
 import RandomSvg from './components/random'
 
 interface Respuesta {
@@ -25,20 +25,21 @@ interface Respuesta {
 
 export default function Home() {
   const [text, setText] = useState('')
+  // eslint-disable-next-line no-unused-vars
   const [res, setRes] = useState<Respuesta[]>([])
 
   async function handdleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    if (text) {
-      const result = await service(text)
+    // if (text) {
+    //   const result = await service(text)
 
-      if (typeof result.then === 'function') {
-        const resolvedResult = await result
-        setRes(resolvedResult)
-      } else {
-        setRes(result)
-      }
-    }
+    //   if (typeof result.then === 'function') {
+    //     const resolvedResult = await result
+    //     setRes(resolvedResult)
+    //   } else {
+    //     setRes(result)
+    //   }
+    // }
 
     setText('')
   }
@@ -57,7 +58,7 @@ export default function Home() {
           <form action='' onSubmit={handdleSubmit}>
             <label className='flex flex-col-reverse relative focus group'>
               <input
-                className='border-2 border-black px-4 py-3 leading-9'
+                className='px-4 py-3 leading-2 rounded-xl shadow-md focus:outline-none focus:border-sky-400'
                 type='text'
                 onChange={handleChange}
               />
