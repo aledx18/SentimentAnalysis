@@ -14,8 +14,9 @@ async function service(text: string) {
     const json = await response.json()
 
     return json
-  } catch (e) {
-    console.log(e)
+  } catch (error) {
+    console.error(`Failed to fetch sentiment analysis: ${error}`)
+    return Promise.reject(error)
   }
 }
 
