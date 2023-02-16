@@ -2,8 +2,8 @@
 /* eslint-disable indent */
 import Head from 'next/head'
 import React, { useState } from 'react'
-import service from './components/service'
-import RandomSvg from './components/random'
+// import service from './components/service'
+// import RandomSvg from './components/random'
 
 interface Respuesta {
   id: string
@@ -26,20 +26,20 @@ interface Respuesta {
 export default function Home() {
   const [text, setText] = useState('')
   // eslint-disable-next-line no-unused-vars
-  const [res, setRes] = useState<Respuesta[]>([])
+  const [res, setRes] = useState<Respuesta | null>(null)
 
   async function handdleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    if (text) {
-      const result = await service(text)
+    // if (text) {
+    //   const result = await service(text)
 
-      if (typeof result.then === 'function') {
-        const resolvedResult = await result
-        setRes(resolvedResult)
-      } else {
-        setRes(result)
-      }
-    }
+    //   if (typeof result.then === 'function') {
+    //     const resolvedResult = await result
+    //     setRes(resolvedResult)
+    //   } else {
+    //     setRes(result)
+    //   }
+    // }
 
     setText('')
   }
@@ -64,16 +64,16 @@ export default function Home() {
               />
             </label>
             <button className='bg-blue-300 py-2 px-2 rounded-md'>Enviar</button>
-            {res?.map((r) => (
-              <div key={r.id}>
-                <h2 key={r.id}> {r.prediction} </h2>
-                {r.prediction === 'negativo' ? (
+            {/* {res && (
+              <div>
+                <h2 key={res.id}> {res.prediction} </h2>
+                {res.prediction === 'negativo' ? (
                   <RandomSvg type='negativo' />
                 ) : (
                   <RandomSvg type='positivo' />
                 )}
               </div>
-            ))}
+            )} */}
           </form>
         </div>
       </main>
@@ -81,12 +81,26 @@ export default function Home() {
   )
 }
 
-// ;<h3>
-//   {r.prediction === 'negativo' ? (
-//     <PositivoOne />
-//   ) : r.prediction === 'positivo' ? (
-//     '😀'
-//   ) : (
-//     '😐'
-//   )}
-// </h3>
+// async function service(text: string) {
+//   try {
+//     const response = await fetch(
+//       'https://sentiment-analysis-liart.vercel.app/api/cohere',
+//       {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify({ prompt: text })
+//       }
+//     )
+
+//     const json = await response.json()
+
+//     return json
+//   } catch (error) {
+//     console.error(`Failed to fetch sentiment analysis: ${error}`)
+//     return Promise.reject(error)
+//   }
+// }
+
+// export default service
