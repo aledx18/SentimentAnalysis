@@ -1,6 +1,10 @@
+/* eslint-disable multiline-ternary */
+/* eslint-disable indent */
 import Head from 'next/head'
 import React, { useState } from 'react'
 import service from './components/service'
+import RandomSvg from './components/random'
+// import PositivoF from './components/comparador.jsx'
 
 interface Respuesta {
   id: string
@@ -57,13 +61,11 @@ export default function Home() {
             {res?.map((r) => (
               <div key={r.id}>
                 <h2 key={r.id}> {r.prediction} </h2>
-                <h3>
-                  {r.prediction === 'negativo'
-                    ? '😌'
-                    : r.prediction === 'positivo'
-                    ? '😃'
-                    : '😐'}
-                </h3>
+                {r.prediction === 'negativo' ? (
+                  <RandomSvg type='negativo' />
+                ) : (
+                  <RandomSvg type='neutral' />
+                )}
               </div>
             ))}
           </form>
@@ -72,3 +74,13 @@ export default function Home() {
     </>
   )
 }
+
+// ;<h3>
+//   {r.prediction === 'negativo' ? (
+//     <PositivoOne />
+//   ) : r.prediction === 'positivo' ? (
+//     '😀'
+//   ) : (
+//     '😐'
+//   )}
+// </h3>
