@@ -1132,6 +1132,188 @@ export function Neutral() {
     </svg>
   )
 }
+
+export function Base() {
+  return (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      version='1.1'
+      xmlnsXlink='http://www.w3.org/1999/xlink'
+      viewBox='0 0 800 800'
+    >
+      <defs>
+        <radialGradient id='ccclaymoji-grad-dark' r='93%' cx='20%' cy='20%'>
+          <stop offset='70%' stopColor='hsl(41, 100%, 67%)' stop-opacity='0' />
+          <stop offset='97%' stopColor='#c89924' stop-opacity='1' />
+        </radialGradient>
+        <radialGradient id='ccclaymoji-grad-light' r='65%' cx='28%' cy='20%'>
+          <stop offset='0%' stopColor='#fffd88' stop-opacity='0.75' />
+          <stop offset='100%' stopColor='hsl(41, 100%, 67%)' stop-opacity='0' />
+        </radialGradient>
+        <filter
+          id='ccclaymoji-blur'
+          x='-100%'
+          y='-100%'
+          width='400%'
+          height='400%'
+          filterUnits='objectBoundingBox'
+          primitiveUnits='userSpaceOnUse'
+          color-interpolation-filters='sRGB'
+        >
+          <feGaussianBlur
+            stdDeviation='30'
+            x='0%'
+            y='0%'
+            width='100%'
+            height='100%'
+            in='SourceGraphic'
+            edgeMode='none'
+            result='blur'
+          />
+        </filter>
+        <filter
+          id='inner-blur'
+          x='-100%'
+          y='-100%'
+          width='400%'
+          height='400%'
+          filterUnits='objectBoundingBox'
+          primitiveUnits='userSpaceOnUse'
+          color-interpolation-filters='sRGB'
+        >
+          <feGaussianBlur
+            stdDeviation='2'
+            x='0%'
+            y='0%'
+            width='100%'
+            height='100%'
+            in='SourceGraphic'
+            edgeMode='none'
+            result='blur'
+          />
+        </filter>
+        <filter
+          id='eye-shadow'
+          x='-100%'
+          y='-100%'
+          width='400%'
+          height='400%'
+          filterUnits='objectBoundingBox'
+          primitiveUnits='userSpaceOnUse'
+          color-interpolation-filters='sRGB'
+        >
+          <feDropShadow
+            stdDeviation='10'
+            dx='10'
+            dy='10'
+            flood-color='#000000'
+            flood-opacity='0.2'
+            x='0%'
+            y='0%'
+            width='100%'
+            height='100%'
+            result='dropShadow'
+          />
+        </filter>
+        <linearGradient
+          gradientTransform='rotate(-25)'
+          id='eye-light'
+          x1='50%'
+          y1='0%'
+          x2='50%'
+          y2='100%'
+        >
+          <stop offset='20%' stop-color='#555555' stop-opacity='1' />
+          <stop offset='100%' stop-color='black' stop-opacity='0' />
+        </linearGradient>
+        <linearGradient id='mouth-light' x1='50%' y1='0%' x2='50%' y2='100%'>
+          <stop offset='0%' stop-color='#ff9667' stop-opacity='1' />
+          <stop offset='100%' stop-color='hsl(3, 100%, 51%)' stop-opacity='0' />
+        </linearGradient>
+        <filter
+          id='mouth-shadow'
+          x='-100%'
+          y='-100%'
+          width='400%'
+          height='400%'
+          filterUnits='objectBoundingBox'
+          primitiveUnits='userSpaceOnUse'
+          color-interpolation-filters='sRGB'
+        >
+          <feDropShadow
+            stdDeviation='10'
+            dx='10'
+            dy='10'
+            flood-color='#c20000'
+            flood-opacity='0.2'
+            x='0%'
+            y='0%'
+            width='100%'
+            height='100%'
+            result='dropShadow'
+          />
+        </filter>
+      </defs>
+      <g stroke-linecap='round'>
+        <path
+          d='M613 449.9999990633992C613 573.6543980403812 523.6543989769821 673.8951397283608 400 673.8951397283608C276.3461457800512 673.8951397283608 187 573.6543980403812 187 449.9999990633992C187 326.3461448434503 276.3461457800512 226.1048583984375 400 226.1048583984375C523.6543989769821 226.1048583984375 613 326.3461448434503 613 449.9999990633992Z '
+          fill='#c89924'
+          opacity='0.25'
+          filter='url(#ccclaymoji-blur)'
+        />
+        <circle r='213' cx='400' cy='400' fill='hsl(41, 100%, 67%)' />
+        <circle r='213' cx='400' cy='400' fill='url(#ccclaymoji-grad-dark)' />
+        <circle r='213' cx='400' cy='400' fill='url(#ccclaymoji-grad-light)' />
+        <ellipse
+          rx='29.5'
+          ry='28.5'
+          cx='350'
+          cy='375'
+          fill='black'
+          filter='url(#eye-shadow)'
+        />
+        <ellipse
+          rx='29.5'
+          ry='28.5'
+          cx='350'
+          cy='375'
+          fill='url(#eye-light)'
+          filter='url(#inner-blur)'
+        />
+        <ellipse
+          rx='29'
+          ry='29'
+          cx='450'
+          cy='375'
+          fill='black'
+          filter='url(#eye-shadow)'
+        />
+        <ellipse
+          rx='29'
+          ry='29'
+          cx='450'
+          cy='375'
+          fill='url(#eye-light)'
+          filter='url(#inner-blur)'
+        />
+        <path
+          d='M379 525Q396 525 421 525 '
+          stroke-width='20'
+          stroke='hsl(3, 100%, 51%)'
+          fill='none'
+          filter='url(#mouth-shadow)'
+        />
+        <path
+          d='M379 525Q396 525 421 525 '
+          stroke-width='6.666666666666667'
+          stroke='url(#mouth-light)'
+          fill='none'
+          filter='url(#inner-blur)'
+        />
+      </g>
+    </svg>
+  )
+}
 export default function pepe() {
   return null
 }
