@@ -48,10 +48,10 @@ export default function Home() {
 
       <section className='pt-2 md:mt-0 md:h-screen flex flex-col justify-center text-center md:text-left md:flex-row md:justify-between md:items-center lg:px-48 md:px-12 px-4 bg-secondary'>
         <div className='md:flex-1 md:mr-20'>
-          <h1 className='font-pt-serif text-5xl font-bold mb-7'>
+          <h1 className='font-pt-serif text-6xl font-bold mb-7'>
             How do you feel today ?
           </h1>
-          <p className='font-pt-serif font-normal mb-7'>
+          <p className='font-pt-serif font-normal text-xl mb-7'>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum
             harum tempore consectetur voluptas.
           </p>
@@ -104,20 +104,20 @@ export default function Home() {
             <Image
               src='./Highlight1.svg'
               alt=''
-              className='absolute -top-10 -left-2'
-              width={100}
+              className='absolute -top-10 left-20'
+              width={120}
               height={100}
             />
           </div>
-          <div className='w-80'>
+          <div className='w-96 mx-auto'>
             {!res ? <Base /> : <RandomSvg type={res} />}
           </div>
           <div className='relative'>
             <Image
               src='./Highlight2.svg'
               alt=''
-              className='absolute -bottom-2 right-20'
-              width={80}
+              className='absolute -bottom-2 right-24'
+              width={100}
               height={100}
             />
           </div>

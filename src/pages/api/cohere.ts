@@ -14,12 +14,8 @@ export default async function handler(
 
   const apiUrl = 'https://api.cohere.ai/classify'
   const authToken = process.env.API_KEY
-  console.log(authToken)
-  console.log(prompt)
 
   try {
-    console.log('dentro del cath')
-
     const requestOptions = {
       method: 'POST',
       headers: {
