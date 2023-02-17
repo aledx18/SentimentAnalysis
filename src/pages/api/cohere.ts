@@ -64,7 +64,7 @@ export default async function handler(
       return res.status(500).json({ error: 'cohere API error' })
     }
 
-    return res.status(200).json(data.classifications)
+    return res.status(200).json(data.classifications[0])
   } catch (e) {
     console.error(e)
     res.status(500).json({ error: e })

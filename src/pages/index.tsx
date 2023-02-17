@@ -3,43 +3,52 @@
 import Head from 'next/head'
 import React, { useState } from 'react'
 // import service from './components/service'
-// import RandomSvg from './components/random'
+import RandomSvg from './components/random'
 
-interface Respuesta {
-  id: string
-  input: string
-  prediction: string
-  confidence: number
-  labels: {
-    negativo: {
-      confidence: number
-    }
-    neutral: {
-      confidence: number
-    }
-    positivo: {
-      confidence: number
-    }
-  }
-}
+// interface Respuesta {
+//   id: string
+//   input: string
+//   prediction: string
+//   confidence: number
+//   labels: {
+//     negativo: {
+//       confidence: number
+//     }
+//     neutral: {
+//       confidence: number
+//     }
+//     positivo: {
+//       confidence: number
+//     }
+//   }
+// }
 
 export default function Home() {
   const [text, setText] = useState('')
-  // eslint-disable-next-line no-unused-vars
-  const [res, setRes] = useState<Respuesta | null>(null)
+  const [res, setRes] = useState('')
 
   async function handdleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    // if (text) {
-    //   const result = await service(text)
+    if (!text) return
+    try {
+      const response = await fetch(
+        'https://sentiment-analysis-liart.vercel.app/api/cohere',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ prompt: text })
+        }
+      )
 
-    //   if (typeof result.then === 'function') {
-    //     const resolvedResult = await result
-    //     setRes(resolvedResult)
-    //   } else {
-    //     setRes(result)
-    //   }
-    // }
+      const result = await response.json()
+
+      console.log(result.prediction)
+      setRes(result.prediction)
+    } catch (error) {
+      console.error(`Failed to fetch sentiment analysis: ${error}`)
+    }
 
     setText('')
   }
@@ -64,16 +73,16 @@ export default function Home() {
               />
             </label>
             <button className='bg-blue-300 py-2 px-2 rounded-md'>Enviar</button>
-            {/* {res && (
+            {res && (
               <div>
-                <h2 key={res.id}> {res.prediction} </h2>
-                {res.prediction === 'negativo' ? (
+                <h2> {res} </h2>
+                {res === 'negativo' ? (
                   <RandomSvg type='negativo' />
                 ) : (
                   <RandomSvg type='positivo' />
                 )}
               </div>
-            )} */}
+            )}
           </form>
         </div>
       </main>
@@ -84,7 +93,7 @@ export default function Home() {
 // async function service(text: string) {
 //   try {
 //     const response = await fetch(
-//       'https://sentiment-analysis-liart.vercel.app/api/cohere',
+//       'https://sentiment-analysis-liart.vercel.app/',
 //       {
 //         method: 'POST',
 //         headers: {
