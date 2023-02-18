@@ -9,7 +9,7 @@ import {
 } from './icons'
 
 type Props = {
-  type: 'positivo' | 'negativo' | 'neutral'
+  type: 'positive' | 'negative' | 'neutral'
 }
 
 const positiveSvgs = [PositivoOne, PositivoTwo, PositivoTre]
@@ -26,10 +26,10 @@ function RandomSvg({ type }: Props) {
   let chosenSvg
 
   switch (type) {
-    case 'positivo':
+    case 'positive':
       chosenSvg = getRandomSvg(positiveSvgs)
       break
-    case 'negativo':
+    case 'negative':
       chosenSvg = getRandomSvg(negativeSvgs)
       break
     case 'neutral':
